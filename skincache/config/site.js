@@ -3,11 +3,11 @@ export const siteConfig = {
   description: 'Skincache',
   navItems: [
     {
-      label: 'Buy',
+      label: 'BUY',
       href: '/buy',
     },
     {
-      label: 'Sell',
+      label: 'SELL',
       href: '/sell',
     },
   ],
