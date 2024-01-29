@@ -13,23 +13,20 @@ import {
 } from '@nextui-org/react';
 
 import { link as linkStyles } from '@nextui-org/theme';
+import { useRouter } from 'next/router';
 
 import { siteConfig } from '@/config/site';
 import NextLink from 'next/link';
 import clsx from 'clsx';
 
-import { ThemeSwitch } from '@/components/theme-switch';
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-} from '@/components/icons';
+import { ThemeSwitch } from '@/components/ThemeSwitch';
 
-import { Logo } from '@/components/icons';
+import { Logo } from '@/components/Icons';
+import { FaSteam } from 'react-icons/fa';
 
 export const Navbar = () => {
+  const router = useRouter();
+
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
@@ -53,7 +50,8 @@ export const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: 'foreground' }),
-                  'data-[active=true]:text-primary data-[active=true]:font-extrabold font-bold text-sm'
+                  'font-medium text-sm',
+                  router.pathname == item.href && 'text-primary'
                 )}
                 color="foreground"
                 href={item.href}
@@ -76,20 +74,17 @@ export const Navbar = () => {
           <Button
             isExternal
             as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100"
-            href={siteConfig.links.sponsor}
-            startContent={<HeartFilledIcon className="text-danger" />}
-            variant="flat"
+            className="text-sm font-medium"
+            href={'https://google.com'}
+            startContent={<FaSteam />}
+            variant="light"
           >
-            Sponsor
+            Sign In
           </Button>
         </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <Link isExternal href={siteConfig.links.github}>
-          <GithubIcon className="text-default-500" />
-        </Link>
         <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
