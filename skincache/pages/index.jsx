@@ -44,6 +44,10 @@ export default function IndexPage() {
             </span>
           </Snippet>
         </div>
+
+        <div className="dark:text-primary text-blue-500">
+          blue if light and primary if dark
+        </div>
       </section>
     </DefaultLayout>
   );

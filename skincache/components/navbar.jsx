@@ -74,7 +74,7 @@ export const Navbar = () => {
           <Button
             isExternal
             as={Link}
-            className="text-sm font-medium"
+            className="text-base font-medium"
             href={'https://google.com'}
             startContent={<FaSteam />}
             variant="light"

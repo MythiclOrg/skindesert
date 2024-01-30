@@ -1,6 +1,6 @@
-import { FC, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
-import { SwitchProps, useSwitch } from '@nextui-org/react';
+import { useSwitch } from '@nextui-org/react';
 import { useTheme } from 'next-themes';
 import clsx from 'clsx';
 
