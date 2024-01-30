@@ -10,10 +10,16 @@ const WeaponListing = ({ imgSrc }) => {
       as={'div'}
       onClick={() => console.log(33)}
       isPressable
-      className="w-[180px] group !transition hover:brightness-125"
+      className="w-[175px] group !transition hover:brightness-125"
     >
       <CardBody className="items-center">
-        <Image isBlurred width={120} height={120} src={imgSrc} />
+        <Image
+          disableSkeleton
+          isBlurred
+          width={120}
+          height={120}
+          src={imgSrc}
+        />
         <div className="pt-0 flex w-full flex-col items-start">
           <div className="text-xs font-thin">
             <span className="text-primary">ST</span> / FN / 0.0342
