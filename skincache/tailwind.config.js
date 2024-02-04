@@ -4,6 +4,7 @@ module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './layouts/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
@@ -13,6 +14,13 @@ module.exports = {
   darkMode: 'class',
   plugins: [
     nextui({
+      layout: {
+        radius: {
+          small: '6px',
+          medium: '10px',
+          large: '12px',
+        },
+      },
       themes: {
         light: {
           colors: {

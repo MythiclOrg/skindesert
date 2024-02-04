@@ -10,19 +10,25 @@ import {
   DropdownMenu,
   DropdownItem,
   Button,
+  Badge,
 } from '@nextui-org/react';
 import { Accordion, AccordionItem } from '@nextui-org/react';
 import { IoMdPricetag, IoMdSearch } from 'react-icons/io';
 import { TbRefresh } from 'react-icons/tb';
 import { FiHeart } from 'react-icons/fi';
-import { FaSortAmountDown } from 'react-icons/fa';
+import { ScrollShadow } from '@nextui-org/react';
+
+import { GrNext } from 'react-icons/gr';
+
+import { FaSortAmountDown, FaShoppingCart } from 'react-icons/fa';
+import ListingDisplay from '@/components/buy/ListingDisplay';
 
 const BuyPage = () => {
   return (
     <DefaultLayout>
-      <div className="w-full flex mt-4">
+      <div className="w-full mx-auto flex">
         <div className="pt-16">
-          <Card shadow="sm" className="w-56 mr-3 p-4">
+          <Card shadow="sm" className="w-56 mx-3 p-4">
             <div className="font-bold capitalize pb-2">Filters</div>
             <Divider />
             <Accordion
@@ -114,21 +120,24 @@ const BuyPage = () => {
             </Accordion>
           </Card>
         </div>
-        <div>
-          <div className="flex items-center">
-            <Card shadow="sm" className="h-16 mx-4 w-fit">
+        <div className="w-full">
+          <div className="flex items-center h-16 justify-between">
+            <Card shadow="sm" className="h-full">
               <div className="flex items-center align-middle h-full px-6 text-default-800">
                 <TbRefresh className="cursor-pointer" size={22} />
                 <Divider orientation="vertical" className="max-h-[24px] mx-4" />
                 <FiHeart className="text-primary cursor-pointer" size={21} />
               </div>
             </Card>
-            <Card shadow="sm" className="h-16 mx-4 w-fit min-w-[500px]">
+            <Card
+              shadow="sm"
+              className="h-full w-[calc(100%-440px)] min-w-[400px]"
+            >
               <div className="px-4 text-default-800">
-                <Input variant={'underlined'} label="🔎 Search" />
+                <Input variant={'underlined'} label="Search" />
               </div>
             </Card>
-            <Card shadow="sm" className="h-16 mx-4 w-fit">
+            <Card shadow="sm" className="h-full">
               <div className="px-3 h-full flex items-center text-default-800">
                 <Dropdown>
                   <DropdownTrigger>
@@ -151,167 +160,30 @@ const BuyPage = () => {
                 </Dropdown>
               </div>
             </Card>
-            <Card shadow="sm" className="h-16 mx-4 w-fit">
-              <div className="flex items-center align-middle h-full px-6 text-default-800">
-                cart sum and checkout btn
+            <Card as={'div'} isPressable shadow="sm" className="h-full">
+              <div className="flex items-center align-middle h-full px-4 text-default-800">
+                <Badge
+                  variant="solid"
+                  showOutline={false}
+                  content="3"
+                  size="sm"
+                  color="primary"
+                >
+                  <FaShoppingCart size={20} />
+                </Badge>
+                <div className="font-mono ml-3 mr-2 font-medium tracking-wide">
+                  $1050
+                </div>
+                <GrNext />
               </div>
             </Card>
           </div>
           <div className="py-4">
-            <div className="max-h-[68vh] overflow-scroll px-4 py-4">
-              <div className="grid grid-cols-6 gap-3">
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJfw-bbeQJD4uOinYeOhcj7IbrfkW5u5Mx2gv2P8Y-mjVDk-0JoMW6hJoaXdlc5NwqDqwDvkr_u08Tu6sycynFguych4GGdwUKPWgFGtQ/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV09K_k4ifgP7nO4Tdn2xZ_Ishib2Urd33jQTt_xZuMT30J4THJ1U_aQ2CrgDqw7johMS9vJzBmCRhpGB8sq3xhCxI/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DeXEl7NwdOtbagFABs3OXNYgJP48i5hoOSlPvxDKLUmmde__pyi-TOyoD8j1yg5UQ5N2v1JdTAcAZoZVrR_1K_yObtgJDq7czOz3Mx6CBw7X3dzRfi1xFSLrs4IbZNKyg/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17PLfYQJV5dCykomZksj5Nr_Yg2Yf65wl0uiS9N6jjAS1_BZpZzymLYPBdFdrZArR81G5wLq6gcW_uJicmGwj5HdWJZ3WHA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf1ObcTjVb09O1kYGFqPz6Or3UqWZU7Mxkh6eWotz3iVXn-RU6YDz0I9fDe1U7N1qD-FLtk-fs0ZC-75yayiBruSZ2-z-DyI5k6X-1/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
-                <WeaponListing
-                  imgSrc={
-                    'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC597dGJjoWJhfbLP7LWnn8fscEmjLrCoYik2VXg-ENqNm-mI46VcFVtZg2GrlLtl7q7hsO57ZzMzmwj5HeZC0yaOA/256fx256f'
-                  }
-                />
+            <ScrollShadow className="h-[calc(100dvh-160px)]">
+              <div className="h-[calc(100dvh-140px)]">
+                <ListingDisplay />
               </div>
-            </div>
+            </ScrollShadow>
           </div>
         </div>
       </div>

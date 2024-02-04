@@ -19,7 +19,7 @@ import { siteConfig } from '@/config/site';
 import NextLink from 'next/link';
 import clsx from 'clsx';
 
-import { ThemeSwitch } from '@/components/ThemeSwitch';
+import { ThemeSwitch } from '@/components/common/ThemeSwitch';
 
 import { Logo } from '@/components/Icons';
 import { FaSteam } from 'react-icons/fa';
@@ -28,7 +28,7 @@ export const Navbar = () => {
   const router = useRouter();
 
   return (
-    <NextUINavbar maxWidth="2xl" position="sticky">
+    <NextUINavbar maxWidth="full" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
           <NextLink

@@ -7,19 +7,20 @@ import { FaCartShopping } from 'react-icons/fa6';
 const WeaponListing = ({ imgSrc }) => {
   return (
     <Card
+      shadow="sm"
       as={'div'}
       onClick={() => console.log(33)}
       isPressable
       className="w-[175px] group !transition hover:brightness-125"
     >
       <CardBody className="items-center">
-        <Image
-          disableSkeleton
-          isBlurred
-          width={120}
-          height={120}
+        <img
           src={imgSrc}
+          width={'175px'}
+          height={'175px'}
+          className="absolute blur-2xl brightness-150 dark:brightness-100 contrast-200 transform-gpu"
         />
+        <Image disableSkeleton width={120} height={120} src={imgSrc} />
         <div className="pt-0 flex w-full flex-col items-start">
           <div className="text-xs font-thin">
             <span className="text-primary">ST</span> / FN / 0.0342
