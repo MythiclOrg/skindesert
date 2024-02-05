@@ -11,7 +11,7 @@ const WeaponListing = ({ imgSrc }) => {
       as={'div'}
       onClick={() => console.log(33)}
       isPressable
-      className="w-[175px] group !transition hover:brightness-125"
+      className="w-full group !transition hover:brightness-125"
     >
       <CardBody className="items-center">
         <img

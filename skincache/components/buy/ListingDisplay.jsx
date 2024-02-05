@@ -10,7 +10,6 @@ const gridComponents = {
       style={{
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'space-between',
         ...style,
       }}
     >
@@ -22,7 +21,7 @@ const gridComponents = {
       {...props}
       style={{
         display: 'flex',
-        flex: 'none',
+        flex: '1',
         boxSizing: 'border-box',
       }}
     >
@@ -38,7 +37,7 @@ const ListingDisplay = () => {
       totalCount={200}
       components={gridComponents}
       className="rounded-xl"
-      itemClassName="px-px py-1"
+      itemClassName="p-2 min-w-[175px]"
       itemContent={(index) => (
         <WeaponListing
           imgSrc={

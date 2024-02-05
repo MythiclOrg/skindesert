@@ -28,7 +28,11 @@ export const Navbar = () => {
   const router = useRouter();
 
   return (
-    <NextUINavbar maxWidth="full" position="sticky">
+    <NextUINavbar
+      className="border-b-1 border-default-100"
+      maxWidth="full"
+      position="sticky"
+    >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
           <NextLink

@@ -1,5 +1,5 @@
 import DefaultLayout from '@/layouts/default';
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import WeaponListing from '@/components/common/WeaponListing';
 import {
   Card,
@@ -24,10 +24,23 @@ import { FaSortAmountDown, FaShoppingCart } from 'react-icons/fa';
 import ListingDisplay from '@/components/buy/ListingDisplay';
 
 const BuyPage = () => {
+  const topBarRef = useRef(null);
+  const [listingViewOffset, setListingViewOffset] = useState(136);
+
+  useEffect(() => {
+    const element = topBarRef.current;
+    if (element) {
+      const rect = element.getBoundingClientRect();
+      const spaceBetweenElementAndTop = rect.bottom;
+
+      setListingViewOffset(spaceBetweenElementAndTop);
+    }
+  }, [topBarRef]);
+
   return (
     <DefaultLayout>
       <div className="w-full mx-auto flex">
-        <div className="pt-16">
+        <div className="hidden md:block pt-16">
           <Card shadow="sm" className="w-56 mx-3 p-4">
             <div className="font-bold capitalize pb-2">Filters</div>
             <Divider />
@@ -121,7 +134,10 @@ const BuyPage = () => {
           </Card>
         </div>
         <div className="w-full">
-          <div className="flex items-center h-16 justify-between">
+          <div
+            ref={topBarRef}
+            className="flex items-center h-14 justify-between"
+          >
             <Card shadow="sm" className="h-full">
               <div className="flex items-center align-middle h-full px-6 text-default-800">
                 <TbRefresh className="cursor-pointer" size={22} />
@@ -131,10 +147,10 @@ const BuyPage = () => {
             </Card>
             <Card
               shadow="sm"
-              className="h-full w-[calc(100%-440px)] min-w-[400px]"
+              className="h-full w-[calc(100%-440px)] min-w-[100px]"
             >
               <div className="px-4 text-default-800">
-                <Input variant={'underlined'} label="Search" />
+                <Input size="sm" variant={'underlined'} label="Search" />
               </div>
             </Card>
             <Card shadow="sm" className="h-full">
@@ -179,8 +195,10 @@ const BuyPage = () => {
             </Card>
           </div>
           <div className="py-4">
-            <ScrollShadow className="h-[calc(100dvh-160px)]">
-              <div className="h-[calc(100dvh-140px)]">
+            <ScrollShadow
+              style={{ height: `calc(100dvh - ${listingViewOffset + 20}px)` }}
+            >
+              <div style={{ height: `calc(100dvh - ${listingViewOffset}px)` }}>
                 <ListingDisplay />
               </div>
             </ScrollShadow>

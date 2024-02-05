@@ -7,10 +7,10 @@ export default function DefaultLayout({ children }) {
     <div className="relative flex flex-col h-screen">
       <Head />
       <Navbar />
-      <main className="container mx-auto max-w-full px-6 flex-grow">
+      <main className="container mt-4 mx-auto max-w-full px-6 flex-grow">
         {children}
       </main>
-      <footer className="w-full flex items-center justify-center py-3">
+      <footer className="w-full flex flex-col items-center justify-center py-3">
         <Link
           isExternal
           className="flex items-center gap-1 text-current"
@@ -20,6 +20,8 @@ export default function DefaultLayout({ children }) {
           <span className="text-default-600">Powered by</span>
           <p className="text-primary">NextUI</p>
         </Link>
+        <div>Yeah so thats the footer</div>
+        <div>yep</div>
       </footer>
     </div>
   );
